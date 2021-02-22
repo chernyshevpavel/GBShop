@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D0657AE25E4219F0024229D /* UserChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0657AD25E4219F0024229D /* UserChange.swift */; };
 		1D0657B325E421BE0024229D /* UserChangeRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0657B225E421BE0024229D /* UserChangeRequestFactory.swift */; };
+		1D0657B825E444110024229D /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0657B725E444110024229D /* Stub.swift */; };
+		1D0657C525E4451C0024229D /* ResponseCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0657C425E4451C0024229D /* ResponseCodableTests.swift */; };
 		1D2857FC25DDA60B00AB974A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2857FB25DDA60B00AB974A /* AppDelegate.swift */; };
 		1D2857FE25DDA60B00AB974A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2857FD25DDA60B00AB974A /* SceneDelegate.swift */; };
 		1D28580525DDA60F00AB974A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D28580425DDA60F00AB974A /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 		11945FA50198A031EA0FF775 /* Pods-GBShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GBShop.release.xcconfig"; path = "Target Support Files/Pods-GBShop/Pods-GBShop.release.xcconfig"; sourceTree = "<group>"; };
 		1D0657AD25E4219F0024229D /* UserChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChange.swift; sourceTree = "<group>"; };
 		1D0657B225E421BE0024229D /* UserChangeRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChangeRequestFactory.swift; sourceTree = "<group>"; };
+		1D0657B725E444110024229D /* Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
+		1D0657C425E4451C0024229D /* ResponseCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodableTests.swift; sourceTree = "<group>"; };
 		1D2857F825DDA60B00AB974A /* GBShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2857FB25DDA60B00AB974A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D2857FD25DDA60B00AB974A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 			children = (
 				1D28581225DDA60F00AB974A /* GBShopTests.swift */,
 				1D28581425DDA60F00AB974A /* Info.plist */,
+				1D0657B725E444110024229D /* Stub.swift */,
+				1D0657C425E4451C0024229D /* ResponseCodableTests.swift */,
 			);
 			path = GBShopTests;
 			sourceTree = "<group>";
@@ -593,6 +599,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D28581325DDA60F00AB974A /* GBShopTests.swift in Sources */,
+				1D0657C525E4451C0024229D /* ResponseCodableTests.swift in Sources */,
+				1D0657B825E444110024229D /* Stub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
