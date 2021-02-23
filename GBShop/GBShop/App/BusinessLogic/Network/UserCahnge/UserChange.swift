@@ -13,15 +13,17 @@ class UserChange: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl: URL
     
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
-        queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
+        queue: DispatchQueue = DispatchQueue.global(qos: .utility),
+        baseUrl: URL) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
+        self.baseUrl = baseUrl
     }
 }
 
