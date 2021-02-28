@@ -37,7 +37,7 @@ extension GetProductList {
     struct GetProductListRequest: RequestRouter {
         var baseUrl: URL
         var method: HTTPMethod = .get
-        var path: String = "catalogData.json"
+        var path: String = "getProductList"
         var pageNumber: Int
         var idCategory: Int
         

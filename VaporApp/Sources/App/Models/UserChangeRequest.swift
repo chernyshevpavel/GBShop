@@ -7,7 +7,8 @@
 
 import Vapor
 
-struct RegisterRequest: Content {
+struct UserChangeRequest: Content {
+    var user_id: Int
     var username: String
     var password: String
     var email: String

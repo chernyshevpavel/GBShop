@@ -12,7 +12,7 @@ import Alamofire
 class UserChangeRequestFactoryTest: XCTestCase {
 
     func testUserChange() throws {
-        let requestFactory = RequestFactory(baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
+        let requestFactory = RequestFactory(baseUrl: URL(string: "http://127.0.0.1:8080")!)
         let expect = expectation(description: "user change")
         let userChange = requestFactory.makeUserChangeRequestFacrory();
         userChange.change(userId: 123, userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in

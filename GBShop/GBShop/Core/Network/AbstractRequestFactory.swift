@@ -27,7 +27,7 @@ extension AbstractRequestFactory {
         request: URLRequestConvertible,
         completionHandler: @escaping (AFDataResponse<T>) -> Void)
         -> DataRequest {
-            return sessionManager
+        return sessionManager
                 .request(request)
                 .responseCodable(errorParser: errorParser, queue: queue, completionHandler: completionHandler)
     }

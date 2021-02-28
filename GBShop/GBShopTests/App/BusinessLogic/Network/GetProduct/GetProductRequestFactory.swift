@@ -12,7 +12,7 @@ import Alamofire
 class GetProductRequestFactory: XCTestCase {
 
     func testGetProduct() throws {
-        let requestFactory = RequestFactory(baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!)
+        let requestFactory = RequestFactory(baseUrl: URL(string: "http://127.0.0.1:8080")!)
         let getProductFactory = requestFactory.makeGetProductRequestFactory()
         let expect = expectation(description: "product")
         getProductFactory.getById(productId: 123) { response in
