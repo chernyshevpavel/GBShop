@@ -9,4 +9,7 @@ func routes(_ app: Application) throws {
     let productController = ProductController()
     app.get("getProductById", use: productController.getById)
     app.get("getProductList", use: productController.list)
+    let productReviewController = ProductReviewController()
+    app.get("getProductReviews", use: productReviewController.list)
+    app.post("addProductReview", use: productReviewController.create)
 }
