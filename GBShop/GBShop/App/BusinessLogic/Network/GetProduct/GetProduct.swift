@@ -13,12 +13,13 @@ class GetProduct: AbstractRequestFactory {
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
-    
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL) {
+        baseUrl: URL
+    ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -31,7 +32,7 @@ extension GetProduct: GetProductRequestFactory {
         let requestModel = GetProductRequest(baseUrl: baseUrl, productId: productId)
         request(request: requestModel, completionHandler: complition)
     }
-    
+
 }
 
 extension GetProduct {
@@ -40,13 +41,12 @@ extension GetProduct {
         var method: HTTPMethod = .get
         var path: String = "getProductById"
         var productId: Int
-        
+
         var parameters: Parameters? {
-            return [
+            [
                 "product_id": productId
             ]
         }
-        
-        
+
     }
 }

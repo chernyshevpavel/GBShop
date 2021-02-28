@@ -12,7 +12,10 @@ import Alamofire
 class GetProductListRequestFactoryTest: XCTestCase {
 
     func testGetProductList() throws {
-        let requestFactory = RequestFactory(baseUrl: URL(string: "http://127.0.0.1:8080")!)
+        guard let baseUrl = URL(string: "http://127.0.0.1:8080") else {
+            fatalError("Wrong server url")
+        }
+        let requestFactory = RequestFactory(baseUrl: baseUrl)
         let catalogData = requestFactory.makeGetProductListRequestFactory()
         let expect = expectation(description: "product list")
         catalogData.catalogData(pageNumber: 1, idCategory: 1) { response in
@@ -29,7 +32,10 @@ class GetProductListRequestFactoryTest: XCTestCase {
     }
 
     func testFailureGetProductList() throws {
-        let requestFactory = RequestFactory(baseUrl: URL(string: "https://fake.site.com")!)
+        guard let baseUrl = URL(string: "https://failure.url.com") else {
+            fatalError("something wrong")
+        }
+        let requestFactory = RequestFactory(baseUrl: baseUrl)
         let catalogData = requestFactory.makeGetProductListRequestFactory()
         let expect = expectation(description: "product list")
         catalogData.catalogData(pageNumber: 1, idCategory: 1) { response in

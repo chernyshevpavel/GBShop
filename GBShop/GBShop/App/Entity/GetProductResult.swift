@@ -12,8 +12,8 @@ struct GetProductResult: Codable {
     let name: String
     let price: Int
     let description: String
-    
-    enum CodingKeys: String, CodingKey{
+
+    enum CodingKeys: String, CodingKey {
         case result = "result"
         case name = "product_name"
         case price = "product_price"
@@ -23,7 +23,7 @@ struct GetProductResult: Codable {
 
 extension GetProductResult: Equatable {
     static func == (lhs: GetProductResult, rhs: GetProductResult) -> Bool {
-            return  lhs.result == rhs.result &&
+            lhs.result == rhs.result &&
                     lhs.name == rhs.name &&
                     lhs.price == rhs.price &&
                     lhs.description == rhs.description

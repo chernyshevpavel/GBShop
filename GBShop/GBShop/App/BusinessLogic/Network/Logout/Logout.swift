@@ -14,12 +14,13 @@ class Logout: AbstractRequestFactory {
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
-    
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL) {
+        baseUrl: URL
+    ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -35,14 +36,14 @@ extension Logout: LogoutRequestFactory {
 }
 
 extension Logout {
-    struct LogoutRequest: RequestRouter{
+    struct LogoutRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "logout"
-        
+
         let userId: Int
         var parameters: Parameters? {
-            return [
+            [
                 "user_id": userId
             ]
         }

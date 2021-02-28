@@ -13,12 +13,13 @@ class GetProductList: AbstractRequestFactory {
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
-    
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL) {
+        baseUrl: URL
+    ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -40,12 +41,12 @@ extension GetProductList {
         var path: String = "getProductList"
         var pageNumber: Int
         var idCategory: Int
-        
+
         var parameters: Parameters? {
-            return [
+            [
                 "page_number": pageNumber,
                 "id_category": idCategory
-            ];
+            ]
         }
     }
 }

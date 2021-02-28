@@ -466,6 +466,7 @@
 			buildConfigurationList = 1D28582225DDA60F00AB974A /* Build configuration list for PBXNativeTarget "GBShop" */;
 			buildPhases = (
 				289EEEF75650187E69358C1B /* [CP] Check Pods Manifest.lock */,
+				1D99A02825EB9BBB0064E13F /* ShellScript */,
 				1D2857F425DDA60B00AB974A /* Sources */,
 				1D2857F525DDA60B00AB974A /* Frameworks */,
 				1D2857F625DDA60B00AB974A /* Resources */,
@@ -604,6 +605,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GBShop/Pods-GBShop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1D99A02825EB9BBB0064E13F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		289EEEF75650187E69358C1B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

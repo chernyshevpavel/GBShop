@@ -8,16 +8,18 @@
 import Foundation
 import Alamofire
 
-protocol RegistrationRequestFactory {
-    func registrate(
-        userName: String,
-        password: String,
-        email: String,
-        gender: String,
-        creditCard: String,
-        bio: String,
-        completionHandler: @escaping (AFDataResponse<UserMessageResult>) -> Void)
+struct RegistrationRequestFactoryModel {
+    var userName: String
+    var password: String
+    var email: String
+    var gender: String
+    var creditCard: String
+    var bio: String
 }
 
-
-
+protocol RegistrationRequestFactory {
+    func registrate(
+        registrateModel: RegistrationRequestFactoryModel,
+        completionHandler: @escaping (AFDataResponse<UserMessageResult>) -> Void
+    )
+}

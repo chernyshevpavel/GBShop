@@ -8,6 +8,7 @@ target 'GBShop' do
   # Pods for GBShop
 pod 'Swinject'
 pod 'Alamofire'
+pod 'SwiftLint'
   target 'GBShopTests' do
     inherit! :search_paths
     # Pods for testing

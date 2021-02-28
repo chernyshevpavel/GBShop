@@ -14,12 +14,13 @@ class UserChange: AbstractRequestFactory {
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
-    
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL) {
+        baseUrl: URL
+    ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -27,19 +28,27 @@ class UserChange: AbstractRequestFactory {
     }
 }
 
-extension UserChange: UserChangeRequestFactory{
-    func change(userId: Int, userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<JustResult>) -> Void) {
-        let requestModel = UserChangeRequest(baseUrl: baseUrl, userId: userId, userName: userName, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
+extension UserChange: UserChangeRequestFactory {
+    func change(userChangeModel: UserChangeRequestFactoryModel, completionHandler: @escaping (AFDataResponse<JustResult>) -> Void) {
+        let requestModel = UserChangeRequest(
+            baseUrl: baseUrl,
+            userId: userChangeModel.userId,
+            userName: userChangeModel.userName,
+            password: userChangeModel.password,
+            email: userChangeModel.email,
+            gender: userChangeModel.gender,
+            creditCard: userChangeModel.creditCard,
+            bio: userChangeModel.bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
 extension UserChange {
-    struct UserChangeRequest: RequestRouter{
+    struct UserChangeRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "userChange"
-        
+
         let userId: Int
         let userName: String
         let password: String
@@ -48,16 +57,15 @@ extension UserChange {
         let creditCard: String
         let bio: String
         var parameters: Parameters? {
-            return [
+            [
                 "user_id": userId,
                 "username": userName,
                 "password": password,
                 "email": email,
                 "gender": gender,
                 "credit_card": creditCard,
-                "bio": bio,
+                "bio": bio
             ]
         }
     }
 }
-

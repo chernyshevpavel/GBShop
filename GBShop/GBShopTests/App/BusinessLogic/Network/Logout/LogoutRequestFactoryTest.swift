@@ -12,9 +12,12 @@ import Alamofire
 class LogoutRequestFactoryTest: XCTestCase {
 
     func testLogin() throws {
-        let requestFactory = RequestFactory(baseUrl: URL(string: "http://127.0.0.1:8080")!)
+        guard let baseUrl = URL(string: "http://127.0.0.1:8080") else {
+            fatalError("Wrong server url")
+        }
+        let requestFactory = RequestFactory(baseUrl: baseUrl)
         let loggedIn = expectation(description: "logout")
-        let logout = requestFactory.makeLogoutRequestFacroty();
+        let logout = requestFactory.makeLogoutRequestFacroty()
         logout.logout(userId: 123) { response in
             switch response.result {
             case .success(let login):
@@ -28,9 +31,12 @@ class LogoutRequestFactoryTest: XCTestCase {
     }
 
     func testFailurLogin() throws {
-        let requestFactory = RequestFactory(baseUrl: URL(string: "https://failure.url.com")!)
+        guard let baseUrl = URL(string: "https://failure.url.com") else {
+            fatalError("something wrong")
+        }
+        let requestFactory = RequestFactory(baseUrl: baseUrl)
         let loggedIn = expectation(description: "logout")
-        let logout = requestFactory.makeLogoutRequestFacroty();
+        let logout = requestFactory.makeLogoutRequestFacroty()
         logout.logout(userId: 123) { response in
             switch response.result {
             case .success(let login):

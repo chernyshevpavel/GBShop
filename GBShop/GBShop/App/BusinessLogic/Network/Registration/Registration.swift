@@ -14,12 +14,13 @@ class Registration: AbstractRequestFactory {
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
-    
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL) {
+        baseUrl: URL
+    ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -27,21 +28,29 @@ class Registration: AbstractRequestFactory {
     }
 }
 
-extension Registration: RegistrationRequestFactory{
-    func registrate(userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<UserMessageResult>) -> Void) {
-        let requestModel = RegistrationRequest(baseUrl: baseUrl, userName: userName, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
+extension Registration: RegistrationRequestFactory {
+
+    func registrate(registrateModel: RegistrationRequestFactoryModel, completionHandler: @escaping (AFDataResponse<UserMessageResult>) -> Void) {
+        let requestModel = RegistrationRequest(
+            baseUrl: baseUrl,
+            userName: registrateModel.userName,
+            password: registrateModel.password,
+            email: registrateModel.email,
+            gender: registrateModel.gender,
+            creditCard: registrateModel.creditCard,
+            bio: registrateModel.bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    
+
 }
 
 extension Registration {
-    struct RegistrationRequest: RequestRouter{
+    struct RegistrationRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "register"
         let encoding: RequestRouterEncoding = .json
-        
+
         let userName: String
         let password: String
         let email: String
@@ -49,13 +58,13 @@ extension Registration {
         let creditCard: String
         let bio: String
         var parameters: Parameters? {
-            return [
+            [
                 "username": userName,
                 "password": password,
                 "email": email,
                 "gender": gender,
                 "credit_card": creditCard,
-                "bio": bio,
+                "bio": bio
             ]
         }
     }

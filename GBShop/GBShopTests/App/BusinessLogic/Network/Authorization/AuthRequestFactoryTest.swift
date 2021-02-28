@@ -12,7 +12,10 @@ import Alamofire
 class AuthRequestFactoryTest: XCTestCase {
 
     func testLogin() throws {
-        let requestFactory = RequestFactory(baseUrl: URL(string: "http://127.0.0.1:8080")!)
+        guard let baseUrl = URL(string: "http://127.0.0.1:8080") else {
+            fatalError("Wrong server url")
+        }
+        let requestFactory = RequestFactory(baseUrl: baseUrl)
         let expect = expectation(description: "logged in")
         let auth = requestFactory.makeAuthRequestFactory()
         auth.login(userName: "Somebody", password: "mypassword") { response in
@@ -33,9 +36,12 @@ class AuthRequestFactoryTest: XCTestCase {
     }
 
     func testFailureLogin() throws {
-        let requestFactory = RequestFactory(baseUrl: URL(string: "https://failure.url.com")!)
+        guard let baseUrl = URL(string: "failure.url.com") else {
+            fatalError("something wrong")
+        }
+        let requestFactory = RequestFactory(baseUrl: baseUrl)
         let expect = expectation(description: "logged in")
-        let auth = requestFactory.makeAuthRequestFactory();
+        let auth = requestFactory.makeAuthRequestFactory()
         auth.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
             case .success(let login):
